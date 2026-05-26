@@ -49,6 +49,6 @@ document.getElementById("submitBtn").addEventListener("click", () => {
   submitBtn.disabled = true;
 
   const feedback = document.getElementById("feedback");
-  feedback.textContent = "✔ Submitted";
+  feedback.textContent = "Submitted";
   feedback.classList.remove("hidden");
 });
