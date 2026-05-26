@@ -7,7 +7,7 @@ const labels = [
 ];
 
 // Generate buttons for each question
-document.querySelectorAll(".question").forEach((qDiv, index) => {
+document.querySelectorAll(".question").forEach((qDiv) => {
   const optionsDiv = qDiv.querySelector(".options");
   labels.forEach((label, i) => {
     const btn = document.createElement("button");
@@ -33,9 +33,8 @@ document.getElementById("submitBtn").addEventListener("click", () => {
     answers[`Q${index + 1}`] = selected.dataset.value;
   });
 
-  // Show JSON output
+  // Convert to JSON string
   const jsonString = JSON.stringify(answers, null, 2);
-  document.getElementById("output").textContent = jsonString;
 
   // Trigger download as answers.json
   const blob = new Blob([jsonString], { type: "application/json" });
@@ -43,4 +42,13 @@ document.getElementById("submitBtn").addEventListener("click", () => {
   link.href = URL.createObjectURL(blob);
   link.download = "answers.json";
   link.click();
+
+  // Change button text, disable it, and show feedback
+  const submitBtn = document.getElementById("submitBtn");
+  submitBtn.textContent = "Submitted";
+  submitBtn.disabled = true;
+
+  const feedback = document.getElementById("feedback");
+  feedback.textContent = "✔ Submitted";
+  feedback.classList.remove("hidden");
 });
