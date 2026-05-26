@@ -14,7 +14,7 @@ body {
   border-radius: 8px;
   box-shadow: 0 4px 10px rgba(0,0,0,0.1);
   text-align: center;
-  width: 400px;
+  width: 500px;
 }
 
 .question {
@@ -63,7 +63,17 @@ body {
 
 .hidden {
   display: none;
+}
+
+#feedback {
   margin-left: 10px;
   color: green;
   font-weight: bold;
+  opacity: 0;
+  transition: opacity 1s ease-in;
+}
+
+#feedback.show {
+  display: inline;
+  opacity: 1;
 }

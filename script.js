@@ -43,12 +43,12 @@ document.getElementById("submitBtn").addEventListener("click", () => {
   link.download = "answers.json";
   link.click();
 
-  // Change button text, disable it, and show feedback
+  // Change button text, disable it, and show feedback with fade-in
   const submitBtn = document.getElementById("submitBtn");
   submitBtn.textContent = "Submitted";
   submitBtn.disabled = true;
 
   const feedback = document.getElementById("feedback");
   feedback.textContent = "Submitted";
-  feedback.classList.remove("hidden");
+  feedback.classList.add("show");
 });
